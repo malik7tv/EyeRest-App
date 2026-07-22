@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EyeRest - Gözlerinizi Dinlendirin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+
+        /* NAV */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: rgba(10,10,10,0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #4ade80;
+        }
+
+        .logo span {
+            color: #ffffff;
+        }
+
+        nav a {
+            color: #aaaaaa;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #4ade80;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 120px 20px 80px;
+            background: radial-gradient(ellipse at top, #0d2818 0%, #0a0a0a 70%);
+        }
+
+        .badge {
+            display: inline-block;
+            background: #0d2818;
+            color: #4ade80;
+            border: 1px solid #4ade80;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #4ade80;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #aaaaaa;
+            max-width: 560px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #4ade80;
+            color: #000000;
+            padding: 14px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #22c55e;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            padding: 14px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 1px solid #333333;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: #4ade80;
+            color: #4ade80;
+        }
+
+        /* MOCKUP */
+        .mockup {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .mockup-box {
+            display: inline-block;
+            background: #111111;
+            border: 1px solid #222222;
+            border-radius: 20px;
+            padding: 40px 60px;
+            font-size: 80px;
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 80px 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: #aaaaaa;
+            margin-bottom: 60px;
+            font-size: 16px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: #111111;
+            border: 1px solid #1e1e1e;
+            border-radius: 16px;
+            padding: 32px;
+            transition: border-color 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #4ade80;
+        }
+
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #aaaaaa;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* HOW IT WORKS */
+        .how {
+            background: #0d0d0d;
+            padding: 80px 60px;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #4ade80;
+            color: #000000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+            margin: 0 auto 16px;
+        }
+
+        .step h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: #aaaaaa;
+            font-size: 14px;
+        }
+
+        /* PRICING */
+        .pricing {
+            padding: 80px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .pricing-card {
+            background: #111111;
+            border: 1px solid #1e1e1e;
+            border-radius: 16px;
+            padding: 36px;
+            text-align: center;
+        }
+
+        .pricing-card.popular {
+            border-color: #4ade80;
+            position: relative;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4ade80;
+            color: #000000;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .pricing-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #aaaaaa;
+        }
+
+        .price {
+            font-size: 42px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .price span {
+            font-size: 16px;
+            color: #aaaaaa;
+            font-weight: 400;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 24px 0;
+            text-align: left;
+        }
+
+        .pricing-card ul li {
+            color: #aaaaaa;
+            font-size: 14px;
+            padding: 6px 0;
+        }
+
+        .pricing-card ul li::before {
+            content: "✓ ";
+            color: #4ade80;
+            font-weight: 700;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 100px 20px;
+            background: radial-gradient(ellipse at center, #0d2818 0%, #0a0a0a 70%);
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            color: #aaaaaa;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #1a1a1a;
+            color: #555555;
+            font-size: 14px;
+        }
+
+        footer span {
+            color: #4ade80;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 24px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .features, .pricing, .how {
+                padding: 60px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="logo">Eye<span>Rest</span></div>
+        <div>
+            <a href="#features">Özellikler</a>
+            <a href="#how">Nasıl Çalışır</a>
+            <a href="#pricing">Fiyatlar</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="badge">👁️ Göz Sağlığı İçin Tasarlandı</div>
+        <h1>Gözlerinizi <span>Dinlendirin</span>,<br>Verimliliğinizi Artırın</h1>
+        <p>EyeRest, ekran başında çalışanlar için geliştirilmiş akıllı göz dinlendirme ve mola yönetim uygulamasıdır.</p>
+        <div class="btn-group">
+            <a href="#" class="btn-primary">🍎 App Store'dan İndir</a>
+            <a href="#" class="btn-primary">🤖 Google Play'den İndir</a>
+        </div>
+    </section>
+
+    <!-- MOCKUP -->
+    <div class="mockup">
+        <div class="mockup-box">👁️</div>
+    </div>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+        <h2 class="section-title">Neden <span style="color:#4ade80">EyeRest</span>?</h2>
+        <p class="section-sub">Göz sağlığınızı korumak için ihtiyacınız olan her şey tek bir uygulamada.</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <h3>20-20-20 Kuralı</h3>
+                <p>Her 20 dakikada bir, 20 feet uzaktaki bir nesneye 20 saniye bakmanızı hatırlatır.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💙</div>
+                <h3>Mavi Işık Filtresi</h3>
+                <p>Ekranınızdan yayılan zararlı mavi ışığı filtreler, uyku düzeninizi korur.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Detaylı İstatistikler</h3>
+                <p>Günlük ekran sürenizi ve mola alışkanlıklarınızı takip edin.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧘</div>
+                <h3>Göz Egzersizleri</h3>
+                <p>Uzmanlar tarafından hazırlanmış göz egzersizleriyle gözlerinizi güçlendirin.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌙</div>
+                <h3>Karanlık Mod</h3>
+                <p>Gece kullanımı için özel karanlık mod ile gözlerinizi koruyun.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔔</div>
+                <h3>Akıllı Bildirimler</h3>
+                <p>Çalışma ritminizi bozmadan en uygun anlarda hatırlatmalar alın.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how" id="how">
+        <h2 class="section-title" style="margin-bottom:12px">Nasıl Çalışır?</h2>
+        <p class="section-sub">3 basit adımda gözlerinizi korumaya başlayın.</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>İndir & Kur</h3>
+                <p>App Store veya Google Play'den ücretsiz indir.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Ayarla</h3>
+                <p>Çalışma saatlerini ve mola sıklığını kendin belirle.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Dinlen</h3>
+                <p>EyeRest gerisini halleder, sen sadece çalış.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Fiyatlandırma</h2>
+        <p class="section-sub">İhtiyacına göre seç, istediğin zaman yükselt.</p>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Ücretsiz</h3>
+                <div class="price">₺0 <span>/ay</span></div>
+                <ul>
+                    <li>20-20-20 Hatırlatıcı</li>
+                    <li>Temel İstatistikler</li>
+                    <li>3 Göz Egzersizi</li>
+                    <li>Standart Bildirimler</li>
+                </ul>
+                <a href="#" class="btn-secondary">Hemen Başla</a>
+            </div>
+            <div class="pricing-card popular">
+                <div class="popular-badge">⭐ En Popüler</div>
+                <h3>Premium</h3>
+                <div class="price">₺49 <span>/ay</span></div>
+                <ul>
+                    <li>Tüm Ücretsiz Özellikler</li>
+                    <li>Mavi Işık Filtresi</li>
+                    <li>Sınırsız Egzersiz</li>
+                    <li>Detaylı İstatistikler</li>
+                    <li>Reklamsız Deneyim</li>
+                </ul>
+                <a href="#" class="btn-primary">Premium'a Geç</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Gözlerinize İyi Bakın 👁️</h2>
+        <p>Binlerce kullanıcıya katılın ve göz sağlığınızı korumaya bugün başlayın.</p>
+        <div class="btn-group">
+            <a href="#" class="btn-primary">Ücretsiz İndir</a>
+            <a href="#" class="btn-secondary">Daha Fazla Bilgi</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 <span>EyeRest</span>. Tüm hakları saklıdır. Gözlerinize iyi 
